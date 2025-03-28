@@ -96,7 +96,7 @@ def infer(
         "Mao": ("src/f5_tts/infer/examples/basic/mao.mp3", "Frene su proceso jurídico con DeudU, generando un acuerdo de pago con descuentos muy significativos. Marque uno para brindar opciones de pago."),
     }
     # Use the default audio for the selected voice
-    ref_audio_orig, ref_text = voices.get(ref_voice, (ref_audio_orig, ref_text))
+    ref_audio_orig, ref_text = voices.get(ref_voice)
     ref_audio, ref_text = preprocess_ref_audio_text(ref_audio_orig, ref_text, show_info=show_info)
 
     ema_model = F5TTS_ema_model

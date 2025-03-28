@@ -87,7 +87,7 @@ def traducir_numero_a_texto(texto):
 
 @gpu_decorator
 def infer(
-    ref_audio_orig, ref_text, gen_text, model, remove_silence, cross_fade_duration=0.15, speed=1, show_info=gr.Info, ref_voice = "Theo"
+    ref_audio_orig, ref_text, gen_text, model, remove_silence, cross_fade_duration=0.15, speed=1,ref_voice = "Theo", show_info=gr.Info
 ):
     if ref_audio_orig is None:
         # Use default audio if no reference audio is provided

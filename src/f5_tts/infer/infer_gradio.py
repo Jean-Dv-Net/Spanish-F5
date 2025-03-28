@@ -92,8 +92,9 @@ def infer(
     
     # Use default audio if no reference audio is provided
     voices = {
-        "Theo": ("src/f5_tts/infer/examples/basic/theo.mp3", "En octubre, aprovecha nuestros descuentos de espanto porque es mejor un trato sin trucos. Marca uno y accede a este beneficio DeudU."),
-        "Mao": ("src/f5_tts/infer/examples/basic/mao.mp3", "Frene su proceso jurídico con DeudU, generando un acuerdo de pago con descuentos muy significativos. Marque uno para brindar opciones de pago."),
+        "Theo": ("voices/theo.mp3", "En octubre, aprovecha nuestros descuentos de espanto porque es mejor un trato sin trucos. Marca uno y accede a este beneficio DeudU."),
+        "Mao": ("voices/mao.mp3", "Frene su proceso jurídico con DeudU, generando un acuerdo de pago con descuentos muy significativos. Marque uno para brindar opciones de pago."),
+        "Eli": ("voices/eli.pm3", "El ítem 10.4.3 no aplica directamente a DeudU, dado que DeudU no actúa como autoridad certificadora (CEA) ni genera su propia CEA raíz.")
     }
     # Use the default audio for the selected voice
     ref_audio_orig, ref_text = voices.get(ref_voice)
@@ -151,7 +152,7 @@ with gr.Blocks() as app_tts:
     gr.Markdown("# TTS por Lotes")
     model_choice = gr.Radio(choices=["F5-TTS"], label="Seleccionar Modelo TTS", value="F5-TTS")
     gen_text_input = gr.Textbox(label="Texto para Generar", lines=10)
-    ref_voice_input = gr.Dropdown(choices=["Theo", "Mao"], label="Seleccionar Voz de Referencia", value="Theo", interactive=True)
+    ref_voice_input = gr.Dropdown(choices=["Theo", "Mao", "Eli"], label="Seleccionar Voz de Referencia", value="Theo", interactive=True)
     generate_btn = gr.Button("Sintetizar", variant="primary")
     with gr.Accordion("Configuraciones Avanzadas", open=False):
         ref_text_input = gr.Textbox(

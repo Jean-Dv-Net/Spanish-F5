@@ -153,6 +153,7 @@ with gr.Blocks() as app_tts:
     gen_text_input = gr.Textbox(label="Texto para Generar", lines=10)
     model_choice = gr.Radio(choices=["F5-TTS"], label="Seleccionar Modelo TTS", value="F5-TTS")
     generate_btn = gr.Button("Sintetizar", variant="primary")
+    ref_voice_input = gr.Textbox(label="Voz a utilizar", lines=1)
     with gr.Accordion("Configuraciones Avanzadas", open=False):
         ref_text_input = gr.Textbox(
             label="Texto de Referencia",
@@ -194,6 +195,7 @@ with gr.Blocks() as app_tts:
             remove_silence,
             cross_fade_duration_slider,
             speed_slider,
+            ref_voice_input
         ],
         outputs=[audio_output, spectrogram_output],
     )

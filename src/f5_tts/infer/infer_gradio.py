@@ -94,7 +94,7 @@ def infer(
     voices = {
         "Theo": ("voices/theo.mp3", "En octubre, aprovecha nuestros descuentos de espanto porque es mejor un trato sin trucos. Marca uno y accede a este beneficio DeudU."),
         "Mao": ("voices/mao.mp3", "Frene su proceso jurídico con DeudU, generando un acuerdo de pago con descuentos muy significativos. Marque uno para brindar opciones de pago."),
-        "Eli": ("voices/eli.pm3", "El ítem 10.4.3 no aplica directamente a DeudU, dado que DeudU no actúa como autoridad certificadora (CEA) ni genera su propia CEA raíz.")
+        "Eli": ("voices/eli.mp3", "El ítem 10.4.3 no aplica directamente a DeudU, dado que DeudU no actúa como autoridad certificadora (CEA) ni genera su propia CEA raíz.")
     }
     # Use the default audio for the selected voice
     ref_audio_orig, ref_text = voices.get(ref_voice)

@@ -87,8 +87,16 @@ def traducir_numero_a_texto(texto):
 
 @gpu_decorator
 def infer(
-    ref_audio_orig, ref_text, gen_text, model, remove_silence, cross_fade_duration=0.15, speed=1, show_info=gr.Info
+    ref_audio_orig, ref_text, gen_text, model, remove_silence, cross_fade_duration=0.15, speed=1, show_info=gr.Info, ref_voice = "Theo"
 ):
+    if ref_audio_orig is None:
+        # Use default audio if no reference audio is provided
+        voices = {
+            "Theo": ("./examples/basic/theo.mp3", "En octubre, aprovecha nuestros descuentos de espanto porque es mejor un trato sin trucos. Marca uno y accede a este beneficio DeudU."),
+            "Mao": ("./examples/basic/mao.mp3", "Frene su proceso jurídico con DeudU, generando un acuerdo de pago con descuentos muy significativos. Marque uno para brindar opciones de pago."),
+        }
+        # Use the default audio for the selected voice
+        ref_audio_orig, ref_text = voices.get(ref_voice, (ref_audio_orig, ref_text))
     ref_audio, ref_text = preprocess_ref_audio_text(ref_audio_orig, ref_text, show_info=show_info)
 
     ema_model = F5TTS_ema_model
